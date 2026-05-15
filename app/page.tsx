@@ -1,6 +1,7 @@
 import HeroScene from '@/components/HeroScene'
 import SiteHeader from '@/components/SiteHeader'
 import SiteFooter from '@/components/SiteFooter'
+import HomeInteractions from '@/components/HomeInteractions'
 
 const modules = [
   {
@@ -266,6 +267,7 @@ export default function Home() {
       </main>
 
       <SiteFooter />
+      <HomeInteractions />
     </>
   )
 }

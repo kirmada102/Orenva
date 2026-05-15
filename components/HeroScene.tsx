@@ -154,9 +154,19 @@ export default function HeroScene() {
 
       canvas.addEventListener('click', handleCanvasClick)
 
+      // Respond to the "Activate orenva" button (dispatched by
+      // HomeInteractions) by intensifying the core orb.
+      const handleActivate = () => {
+        setState((prev) => ({ ...prev, activated: true }))
+        orbMaterial.emissiveIntensity = 0.42
+        orbLight.intensity = 16
+      }
+      window.addEventListener('orenva:activate', handleActivate)
+
       return () => {
         window.removeEventListener('resize', handleResize)
         canvas.removeEventListener('click', handleCanvasClick)
+        window.removeEventListener('orenva:activate', handleActivate)
       }
     }
 
