@@ -3,17 +3,13 @@
 import { useEffect, useState } from 'react'
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  // orenva is dark by default — the command-center identity. Light is an
+  // explicit opt-in via the toggle.
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark')
 
   useEffect(() => {
-    // Sync state with the theme the inline <head> script already applied —
-    // saved choice, else the OS colour-scheme preference.
     const saved = localStorage.getItem('orenva-theme') as 'light' | 'dark' | null
-    const prefersDark =
-      typeof window !== 'undefined' &&
-      typeof window.matchMedia === 'function' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    const initial = saved || (prefersDark ? 'dark' : 'light')
+    const initial = saved || 'dark'
     setTheme(initial)
     applyTheme(initial)
   }, [])

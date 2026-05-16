@@ -22,6 +22,9 @@
   --line-strong: rgba(255, 255, 255, 0.52);
   --shadow: 0 1px 2px rgba(40, 28, 80, 0.05), 0 9px 22px rgba(104, 76, 167, 0.09), 0 30px 60px rgba(104, 76, 167, 0.11);
   --shadow-strong: 0 2px 5px rgba(40, 28, 80, 0.08), 0 16px 34px rgba(104, 76, 167, 0.14), 0 42px 82px rgba(104, 76, 167, 0.18);
+  --glow: 0 16px 38px rgba(143, 103, 255, 0.16);
+  --glow-strong: 0 20px 50px rgba(143, 103, 255, 0.26);
+  --ring: rgba(143, 103, 255, 0.24);
   --glass-surface-1: rgba(255, 255, 255, 0.9);
   --glass-surface-2: rgba(255, 255, 255, 0.62);
   --glass-highlight: rgba(255, 255, 255, 0.48);
@@ -60,8 +63,11 @@ html[data-theme="dark"] {
   --iris-soft: #eadbff;
   --line: rgba(194, 162, 255, 0.36);
   --line-strong: rgba(255, 255, 255, 0.2);
-  --shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 18px 44px rgba(0, 0, 0, 0.52);
-  --shadow-strong: 0 4px 12px rgba(0, 0, 0, 0.5), 0 36px 76px rgba(0, 0, 0, 0.64);
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 20px 46px rgba(0, 0, 0, 0.6);
+  --shadow-strong: 0 4px 14px rgba(0, 0, 0, 0.6), 0 40px 84px rgba(0, 0, 0, 0.72);
+  --glow: 0 0 0 1px rgba(150, 112, 255, 0.16), 0 0 38px rgba(143, 103, 255, 0.36), 0 22px 48px rgba(0, 0, 0, 0.6);
+  --glow-strong: 0 0 0 1px rgba(167, 130, 255, 0.28), 0 0 58px rgba(150, 112, 255, 0.52), 0 26px 56px rgba(0, 0, 0, 0.66);
+  --ring: rgba(167, 130, 255, 0.42);
   --glass-surface-1: rgba(22, 18, 38, 0.92);
   --glass-surface-2: rgba(9, 7, 18, 0.74);
   --glass-highlight: rgba(255, 255, 255, 0.14);
@@ -307,4 +313,77 @@ canvas {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Dark command-center treatments
+   orenva's primary identity: a deep canvas with luminous iris
+   accents and panels that glow rather than merely sit.
+   ═══════════════════════════════════════════════════════════ */
+
+html[data-theme="dark"] .site-header {
+  box-shadow: var(--glow);
+}
+
+/* Primary action emits light. */
+html[data-theme="dark"] .button-primary {
+  background: linear-gradient(135deg, #7c4dff, #b692ff);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 34px rgba(140, 100, 255, 0.5),
+    0 16px 34px rgba(0, 0, 0, 0.55);
+}
+
+html[data-theme="dark"] .button-primary:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 0 56px rgba(150, 112, 255, 0.72),
+    0 22px 44px rgba(0, 0, 0, 0.6);
+}
+
+html[data-theme="dark"] .button-secondary {
+  border-color: var(--ring);
+}
+
+html[data-theme="dark"] .button-secondary:hover {
+  border-color: rgba(167, 130, 255, 0.66);
+  box-shadow: var(--glow);
+}
+
+html[data-theme="dark"] .eyebrow-pill {
+  box-shadow: 0 0 30px rgba(143, 103, 255, 0.3);
+}
+
+/* Cards read as luminous-edged console panels. */
+html[data-theme="dark"] .glass-card,
+html[data-theme="dark"] .metric-card,
+html[data-theme="dark"] .module-card,
+html[data-theme="dark"] .reveal-card,
+html[data-theme="dark"] .story-card,
+html[data-theme="dark"] .benefit-card,
+html[data-theme="dark"] .connect-card,
+html[data-theme="dark"] .blog-card,
+html[data-theme="dark"] .large-copy-card,
+html[data-theme="dark"] .founder-card,
+html[data-theme="dark"] .stacked-story,
+html[data-theme="dark"] .ecosystem-status,
+html[data-theme="dark"] .sub-card {
+  border-color: var(--ring);
+}
+
+/* Interactive module cards light up on hover. */
+html[data-theme="dark"] .module-card:hover {
+  border-color: rgba(178, 142, 255, 0.7);
+  box-shadow: var(--glow-strong);
+}
+
+html[data-theme="dark"] .module-card.is-selected {
+  border-color: rgba(178, 142, 255, 0.75);
+  box-shadow: var(--glow);
+}
+
+/* The waitlist field reads as an active console input. */
+html[data-theme="dark"] .waitlist-form input:focus {
+  border-color: rgba(167, 130, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(143, 103, 255, 0.18);
 }

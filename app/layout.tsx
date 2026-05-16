@@ -27,14 +27,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
-        {/* Mark JS as available (gates [data-reveal] hiding) and apply the
-            theme before first paint — saved choice, else OS preference. */}
+        {/* Mark JS as available (gates [data-reveal] hiding). The site is
+            dark by default; drop the attribute only if the visitor has
+            explicitly saved the light theme. */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){try{var d=document.documentElement;d.classList.add('js');var t=localStorage.getItem('orenva-theme');if(t==='dark'||(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)){d.setAttribute('data-theme','dark')}}catch(e){}})()",
+              "(function(){try{var d=document.documentElement;d.classList.add('js');if(localStorage.getItem('orenva-theme')==='light'){d.removeAttribute('data-theme')}}catch(e){}})()",
           }}
         />
       </head>
