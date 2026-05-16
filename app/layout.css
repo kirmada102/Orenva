@@ -645,7 +645,7 @@ html[data-theme="dark"] .scene-aura-two {
   }
 
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
 }
