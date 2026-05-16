@@ -271,12 +271,32 @@
 
 /* Content Sections */
 .content-section {
-  padding: 3rem 0;
+  padding: 4.75rem 0;
 }
 
 .section-heading {
   max-width: 44rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.1rem;
+}
+
+/* Section intros get a small luminous marker so they read as
+   deliberate chapter breaks rather than loose headings. */
+.section-heading .section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.62rem;
+}
+
+.section-heading .section-kicker::before {
+  content: "";
+  width: 1.85rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--iris);
+}
+
+html[data-theme="dark"] .section-heading .section-kicker::before {
+  box-shadow: 0 0 10px rgba(150, 112, 255, 0.85);
 }
 
 .section-heading h2,
