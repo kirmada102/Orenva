@@ -173,6 +173,14 @@ canvas {
   max-width: 100%;
 }
 
+/* Headings can never overflow their container — long words break. */
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+}
+
 ::selection {
   background: rgba(143, 103, 255, 0.22);
 }

@@ -496,6 +496,14 @@ html[data-theme="dark"] .outcome__rule {
   .eco-grid {
     grid-template-columns: 1fr;
   }
+
+  .statement {
+    font-size: clamp(1.85rem, 7.6vw, 2.5rem);
+  }
+
+  .cta-block .waitlist-form {
+    max-width: 100%;
+  }
 }
 
 .module-card h3,

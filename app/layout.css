@@ -757,7 +757,7 @@ html[data-theme="dark"] .scene-aura-two {
 
   .hero h1 {
     max-width: 100%;
-    font-size: clamp(2.2rem, 11vw, 3.1rem);
+    font-size: clamp(1.95rem, 8.4vw, 2.6rem);
   }
 
   .theme-toggle-text {
