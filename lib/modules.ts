@@ -1,18 +1,21 @@
 // The six modules that make up the orenva ecosystem — the single
-// source of truth for the home showcase and the /ecosystem page.
+// source of truth for the home showcase, the /ecosystem page, and
+// the per-module pages at /ecosystem/[module].
 
 export interface OrenvaModule {
-  /** URL-safe id; also the anchor on /ecosystem */
+  /** URL-safe id; also the anchor on /ecosystem and the route segment */
   id: string
   title: string
   /** Short uppercase category label */
   label: string
   /** One-line essence, used on the home module cards */
   tagline: string
-  /** Fuller description for the ecosystem page */
+  /** Fuller description for the ecosystem pages */
   summary: string
   /** Three concrete capabilities */
   capabilities: string[]
+  /** The two modules this one most naturally hands off to */
+  connectsTo: string[]
 }
 
 export const MODULES: OrenvaModule[] = [
@@ -28,6 +31,7 @@ export const MODULES: OrenvaModule[] = [
       'A clear, ranked next step — never a dead end',
       'Every consultation flows straight into pharmacy, therapy, or insurance',
     ],
+    connectsTo: ['pharmacy', 'therapy'],
   },
   {
     id: 'pharmacy',
@@ -41,6 +45,7 @@ export const MODULES: OrenvaModule[] = [
       'Refill reminders timed to your actual usage',
       'Interaction checks against your full orenva health context',
     ],
+    connectsTo: ['ai-doctor', 'insurance'],
   },
   {
     id: 'diet-fitness',
@@ -54,6 +59,7 @@ export const MODULES: OrenvaModule[] = [
       'Trends shared with consultation and therapy, never siloed',
       'Goals that adjust as your health changes',
     ],
+    connectsTo: ['ai-doctor', 'therapy'],
   },
   {
     id: 'therapy',
@@ -67,6 +73,7 @@ export const MODULES: OrenvaModule[] = [
       'Context shared with consent, so you never start over',
       'Gentle check-ins that notice when something shifts',
     ],
+    connectsTo: ['ai-doctor', 'diet-fitness'],
   },
   {
     id: 'insurance',
@@ -80,6 +87,7 @@ export const MODULES: OrenvaModule[] = [
       'Claims pre-filled from your consultation and pharmacy records',
       'Cost estimates before you commit to care',
     ],
+    connectsTo: ['ai-doctor', 'pharmacy'],
   },
   {
     id: 'store',
@@ -93,5 +101,11 @@ export const MODULES: OrenvaModule[] = [
       'Vetted products, with no pay-to-rank shelves',
       'One basket across every part of orenva',
     ],
+    connectsTo: ['diet-fitness', 'ai-doctor'],
   },
 ]
+
+/** Look up a single module by id. */
+export function getModule(id: string): OrenvaModule | undefined {
+  return MODULES.find((m) => m.id === id)
+}

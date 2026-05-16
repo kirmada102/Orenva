@@ -70,6 +70,11 @@ export default function EcosystemPage() {
                   <li key={c}>{c}</li>
                 ))}
               </ul>
+              <div className="hero-actions">
+                <a className="button-secondary" href={`/ecosystem/${m.id}`}>
+                  Explore {m.title}
+                </a>
+              </div>
             </article>
           </section>
         ))}

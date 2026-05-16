@@ -19,12 +19,12 @@ export default function SiteFooter() {
       <div className="footer-column">
         <p className="footer-heading">Solutions</p>
         <div className="footer-links footer-stack">
-          <a href="/ecosystem#ai-doctor">AI Doctor</a>
-          <a href="/ecosystem#pharmacy">Pharmacy</a>
-          <a href="/ecosystem#diet-fitness">Diet &amp; Fitness</a>
-          <a href="/ecosystem#therapy">Therapy &amp; Mental Health</a>
-          <a href="/ecosystem#insurance">Insurance</a>
-          <a href="/ecosystem#store">Supplements &amp; Store</a>
+          <a href="/ecosystem/ai-doctor">AI Doctor</a>
+          <a href="/ecosystem/pharmacy">Pharmacy</a>
+          <a href="/ecosystem/diet-fitness">Diet &amp; Fitness</a>
+          <a href="/ecosystem/therapy">Therapy &amp; Mental Health</a>
+          <a href="/ecosystem/insurance">Insurance</a>
+          <a href="/ecosystem/store">Supplements &amp; Store</a>
         </div>
       </div>
       <div className="footer-column">
