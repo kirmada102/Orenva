@@ -221,6 +221,9 @@ html[data-theme="dark"] .module-capabilities li::before {
   min-width: 0;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
+  /* The orbit rings spin; a rotating square's bounding box swells past
+     its own size, so clip it here or it overflows narrow viewports. */
+  overflow: hidden;
 }
 
 .hero-core__ring {
