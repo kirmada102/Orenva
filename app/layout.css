@@ -299,6 +299,7 @@ main,
 .hero-panels {
   position: relative;
   z-index: 2;
+  min-width: 0;
 }
 
 .eyebrow-pill,

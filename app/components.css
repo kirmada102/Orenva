@@ -216,7 +216,9 @@ html[data-theme="dark"] .module-capabilities li::before {
    always renders — no 3D, no empty void. */
 .hero-core {
   position: relative;
-  width: min(100%, 25rem);
+  width: min(100%, 23rem);
+  max-width: 100%;
+  min-width: 0;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
 }
